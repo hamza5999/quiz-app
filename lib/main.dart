@@ -14,11 +14,16 @@ void main() {
                 end: endAlignment,
                 colors: [Colors.amber, Colors.deepOrange]),
           ),
-          child: const Center(
+          child: Center(
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text(
+                Image.asset(
+                  "assets/images/quiz-logo.png",
+                  width: 250,
+                ),
+                const SizedBox(height: 70),
+                const Text(
                   "Learn Flutter the fun way!",
                   style: TextStyle(
                     color: Colors.white,
