@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/styled_text.dart';
 
 const beginAlignment = Alignment.topLeft;
 const endAlignment = Alignment.bottomRight;
@@ -27,13 +28,7 @@ class GradientContainer extends StatelessWidget {
               width: 250,
             ),
             const SizedBox(height: 70),
-            const Text(
-              "Learn Flutter the fun way!",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 25,
-              ),
-            ),
+            const StyledText("Learn Flutter the fun way!"),
           ],
         ),
       ),
