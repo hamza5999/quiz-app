@@ -36,6 +36,9 @@ class QuestionSummary extends StatelessWidget {
                 ),
               )
               .toList(),
+          // As map() returns an iterable. But we need a list in Column's
+          // children that's why we added .toList() here. To convert it
+          // from iterable to a List
         ),
       ),
     );

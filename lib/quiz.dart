@@ -17,7 +17,7 @@ class Quiz extends StatefulWidget {
 }
 
 class _QuizState extends State<Quiz> {
-  final List<String> selectedAnswers = [];
+  List<String> selectedAnswers = [];
   String activeScreen = "start-screen";
 
   void switchScreen() {
@@ -36,6 +36,14 @@ class _QuizState extends State<Quiz> {
     }
   }
 
+  void restartQuiz() {
+    selectedAnswers = [];
+
+    setState(() {
+      activeScreen = "start-screen";
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     Widget screenWidget = StartScreen(switchScreen);
@@ -47,6 +55,7 @@ class _QuizState extends State<Quiz> {
     if (activeScreen == "results-screen") {
       screenWidget = ResultsScreen(
         chosenAnswers: selectedAnswers,
+        restartQuiz: restartQuiz,
       );
     }
 
