@@ -40,7 +40,7 @@ class _QuizState extends State<Quiz> {
     selectedAnswers = [];
 
     setState(() {
-      activeScreen = "start-screen";
+      activeScreen = "questions-screen";
     });
   }
 
