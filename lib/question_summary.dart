@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/question_and_result.dart';
+import 'package:quiz_app/question_number_icon.dart';
 
 class QuestionSummary extends StatelessWidget {
   final List<Map<String, Object>> summaryData;
@@ -8,24 +10,26 @@ class QuestionSummary extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 300,
+      height: 350,
       child: SingleChildScrollView(
         child: Column(
           children: summaryData
               .map(
                 (data) => Row(
                   children: [
-                    Text(
-                      ((data["question_index"] as int) + 1).toString(),
-                    ),
+                    QuestionNumberIcon(
+                        ((data["question_index"] as int) + 1).toString(),
+                        data["user_answer"] == data["correct_answer"]
+                            ? Colors.amber
+                            : Colors.blue),
+
+                    // Used Expanded widget to expand the size according to the
+                    // content to overcome space issue
                     Expanded(
-                      child: Column(
-                        children: [
-                          Text(data["question"] as String),
-                          const SizedBox(height: 5),
-                          Text(data["user_answer"] as String),
-                          Text(data["correct_answer"] as String),
-                        ],
+                      child: QuestionAndResult(
+                        question: data["question"] as String,
+                        correctAnswer: data["correct_answer"].toString(),
+                        userAnswer: data["user_answer"].toString(),
                       ),
                     )
                   ],
